@@ -1,6 +1,6 @@
 # Nguyen Tuan Khoa
 
-[khoanguyen030803@gmail.com](mailto:khoanguyen030803@gmail.com) | [[Your Portfolio Website](https://alexperdron.github.io/alexperdon.github.io/)](https://alexperdron.github.io/alexperdon.github.io/)
+[khoanguyen030803@gmail.com](mailto:khoanguyen030803@gmail.com) | [[https://alexperdron.github.io/alexperdon.github.io/](https://alexperdron.github.io/alexperdon.github.io/)
 
 ---
 
