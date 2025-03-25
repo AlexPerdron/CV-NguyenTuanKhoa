@@ -6,20 +6,55 @@
     <title>Coming Soon</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./darkmode.js"></script>
+    <script src="./mobile_menu.js"></script>
   </head>
   <body class="bg-gray-200 text-black transition-all duration-300">
     <nav class="bg-white text-black shadow-md p-4">
       <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 class="text-xl font-bold">NguyenTuanKhoa</h1>
-        <div class="space-x-6 hidden md:flex">
-          <a href="./index.html" class="hover:text-blue-500">Home</a>
-          <a href="./coming_soon.html" class="hover:text-blue-500"
-            >Projects</a
+        <!-- Mobile -->
+        <div class="flex items-center md:hidden">
+          <button
+            id="menu-toggle"
+            class="p-2 rounded shadow-md transition duration-300"
           >
-          <a href="./coming_soon.html" class="hover:text-blue-500"
-            >Contact</a
-          >
+            ☰
+          </button>
         </div>
+        <!-- Mobile Menu-->
+        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden transition-opacity"></div>
+        <div id="mobile-menu" class="fixed bg-white top-0 left-0 w-64 h-full transform -translate-x-full transition-transform duration-300 md:hidden">
+          <button id="close-menu" class="absolute top-4 right-4">
+            <img src="./close.png" alt="Close" class="w-4 h-4" />
+          </button>
+          <div class="flex flex-row items-center justify-center mt-12 space-x-4">
+            <img
+              src="./Logo.jpg"
+              alt="Avatar"
+              class="w-8 h-8 rounded-full shadow-md"
+            />
+            <h1 class="text-xl font-bold">AlexPerdron</h1>
+          </div>
+          <ul class="mt-12 space-y-6 text-center">
+            <li><a href="./index.html" class="block py-2 px-4">Résumé</a></li>
+            <li><a href="./coming_soon.html" class="block py-2 px-4">Projects</a></li>
+            <li><a href="./coming_soon.html" class="block py-2 px-4">About</a></li>
+          </ul>
+        </div>
+        <!-- Desktop -->
+        <div class="hidden md:flex md:items-center md:space-x-4">
+          <img
+            src="./Logo.jpg"
+            alt="Avatar"
+            class="w-8 h-8 rounded-full shadow-md"
+          />
+          <h1 class="text-xl font-bold">AlexPerdron</h1>
+        </div>
+        <div class="space-x-6 hidden md:flex">
+          <a href="./index.html" class="hover:text-green-500">Résumé</a>
+          <a href="./coming_soon.html" class="hover:text-green-500">Projects</a>
+          <a href="./coming_soon.html" class="hover:text-green-500">About</a>
+        </div>
+        <!-- Theme Button -->
         <button
           id="dark-mode-toggle"
           class="p-2 rounded shadow-md transition duration-300"
@@ -37,7 +72,7 @@
         I am working hard to bring something amazing! Stay tuned.
       </p>
     </main>
-    <footer class="mt-6 text-center text-gray-900 dark:text-gray-400">
+    <footer class="mt-6 text-center text-gray-900 p-6">
       <p>© 2024 Nguyen Tuan Khoa. All rights reserved.</p>
       <p>
         Contact:
