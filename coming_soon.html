@@ -21,12 +21,20 @@
           </button>
         </div>
         <!-- Mobile Menu-->
-        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden transition-opacity"></div>
-        <div id="mobile-menu" class="fixed bg-white top-0 left-0 w-64 h-full transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div
+          id="overlay"
+          class="fixed inset-0 bg-black bg-opacity-50 hidden transition-opacity"
+        ></div>
+        <div
+          id="mobile-menu"
+          class="fixed bg-white top-0 left-0 w-64 h-full transform -translate-x-full transition-transform duration-300 md:hidden"
+        >
           <button id="close-menu" class="absolute top-4 right-4">
             <img src="./close.png" alt="Close" class="w-4 h-4" />
           </button>
-          <div class="flex flex-row items-center justify-center mt-12 space-x-4">
+          <div
+            class="flex flex-row items-center justify-center mt-12 space-x-4"
+          >
             <img
               src="./Logo.jpg"
               alt="Avatar"
@@ -36,12 +44,20 @@
           </div>
           <ul class="mt-12 space-y-6 text-center">
             <li><a href="./index.html" class="block py-2 px-4">Résumé</a></li>
-            <li><a href="./coming_soon.html" class="block py-2 px-4">Projects</a></li>
-            <li><a href="./coming_soon.html" class="block py-2 px-4">About</a></li>
+            <li>
+              <a href="./coming_soon.html" class="block py-2 px-4">Projects</a>
+            </li>
+            <li>
+              <a href="./coming_soon.html" class="block py-2 px-4">About</a>
+            </li>
           </ul>
         </div>
         <!-- Desktop -->
-        <div class="hidden md:flex md:items-center md:space-x-4">
+        <div
+          type="button"
+          class="hidden md:flex md:items-center md:space-x-4"
+          onClick="window.location.href='./index.html'"
+        >
           <img
             src="./Logo.jpg"
             alt="Avatar"
@@ -65,10 +81,10 @@
     </nav>
 
     <main
-      class="flex flex-col items-center justify-center min-h-screen max-w-6xl mx-auto p-6 mt-6 bg-white shadow-lg rounded-lg"
+      class="flex flex-col items-center justify-center min-h-auto max-w-[90%] xl:max-w-6xl mx-auto p-6 mt-6 bg-white shadow-lg rounded-lg"
     >
-      <h1 class="text-4xl font-bold mb-4">🚀 Coming Soon</h1>
-      <p class="text-lg text-gray-500 mb-6">
+      <h1 class="text-4xl font-bold mb-4 text-center">🚀 Coming Soon</h1>
+      <p class="text-lg text-gray-500 mb-6 text-center">
         I am working hard to bring something amazing! Stay tuned.
       </p>
     </main>
@@ -79,18 +95,14 @@
         <a
           href="mailto:khoanguyen030803@gmail.com"
           class="text-blue-500 hover:text-blue-700"
-          >
+        >
           khoanguyen030803@gmail.com
         </a>
-        |
-        Phone:
-        <a
-          href="tel:+84909801582"
-          class="text-blue-500 hover:text-blue-700"
+        | Phone:
+        <a href="tel:+84909801582" class="text-blue-500 hover:text-blue-700"
           >(+84) 909 801 582</a
         >
       </p>
-    
     </footer>
   </body>
 </html>

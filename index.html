@@ -8,6 +8,7 @@
     <script src="./mobile_menu.js"></script>
   </head>
   <body class="bg-gray-200 text-black transition-all duration-300">
+    <!-- NavBar -->
     <nav class="bg-white text-black shadow-md p-4">
       <div class="max-w-6xl mx-auto flex justify-between items-center">
         <!-- Mobile -->
@@ -20,12 +21,20 @@
           </button>
         </div>
         <!-- Mobile Menu-->
-        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden transition-opacity"></div>
-        <div id="mobile-menu" class="fixed bg-white top-0 left-0 w-64 h-full transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div
+          id="overlay"
+          class="fixed inset-0 bg-black bg-opacity-50 hidden transition-opacity"
+        ></div>
+        <div
+          id="mobile-menu"
+          class="fixed bg-white top-0 left-0 w-64 h-full transform -translate-x-full transition-transform duration-300 md:hidden"
+        >
           <button id="close-menu" class="absolute top-4 right-4">
             <img src="./close.png" alt="Close" class="w-4 h-4" />
           </button>
-          <div class="flex flex-row items-center justify-center mt-12 space-x-4">
+          <div
+            class="flex flex-row items-center justify-center mt-12 space-x-4"
+          >
             <img
               src="./Logo.jpg"
               alt="Avatar"
@@ -35,12 +44,20 @@
           </div>
           <ul class="mt-12 space-y-6 text-center">
             <li><a href="./index.html" class="block py-2 px-4">Résumé</a></li>
-            <li><a href="./coming_soon.html" class="block py-2 px-4">Projects</a></li>
-            <li><a href="./coming_soon.html" class="block py-2 px-4">About</a></li>
+            <li>
+              <a href="./coming_soon.html" class="block py-2 px-4">Projects</a>
+            </li>
+            <li>
+              <a href="./coming_soon.html" class="block py-2 px-4">About</a>
+            </li>
           </ul>
         </div>
         <!-- Desktop -->
-        <div class="hidden md:flex md:items-center md:space-x-4">
+        <div
+          type="button"
+          class="hidden md:flex md:items-center md:space-x-4"
+          onClick="window.location.href='./index.html'"
+        >
           <img
             src="./Logo.jpg"
             alt="Avatar"
@@ -49,7 +66,7 @@
           <h1 class="text-xl font-bold">AlexPerdron</h1>
         </div>
         <div class="space-x-6 hidden md:flex">
-          <a href="./index.html" class="hover:text-red-500">Résumé</a>
+          <a href="./index.html" class="hover:text-green-500">Résumé</a>
           <a href="./coming_soon.html" class="hover:text-green-500">Projects</a>
           <a href="./coming_soon.html" class="hover:text-green-500">About</a>
         </div>
@@ -63,153 +80,155 @@
       </div>
     </nav>
 
-    <div class="flex justify-end mx-auto p-6">
-      <a href="./CV_NguyenTuanKhoa.pdf" download="NguyenTuanKhoa_CV.pdf">
-        <button
-          class="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400"
-        >
-          📄 Download CV
-        </button>
-      </a>
-    </div>
-    <main
-      class="max-w-6xl mx-auto p-6 bg-white text-black shadow-lg rounded-lg"
+    <!-- Main Content --> 
+    <div
+      class="container max-w-[90%] xl:max-w-6xl mx-auto flex flex-col items-center justify-center"
     >
-      <div
-        class="flex flex-col md:flex-row justify-between items-center border-b pb-4"
-      >
-        <div class="flex items-center space-x-4">
-          <img
-            src="./Avatar.jpg"
-            alt="Avatar"
-            class="w-24 h-24 rounded-lg shadow-md"
-          />
-          <div>
-            <h2 class="text-2xl font-semibold">Nguyen Tuan Khoa</h2>
-            <p class="text-black">Software Development Intern</p>
-          </div>
-        </div>
-        <div class="mt-4 md:mt-0 text-sm">
-          <p>📍 Ward 9, District 10, Ho Chi Minh</p>
-          <p>📞 (+84) 909 801 582</p>
-          <p>
-            📧
-            <a href="mailto:khoanguyen030803@gmail.com" class="text-blue-500"
-              >khoanguyen030803@gmail.com</a
-            >
-          </p>
-        </div>
+      <div class="flex justify-end w-full py-6">
+        <a href="./CV_NguyenTuanKhoa.pdf" download="NguyenTuanKhoa_CV.pdf">
+          <button
+            class="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400"
+          >
+            📄 Download CV
+          </button>
+        </a>
       </div>
-
-      <!-- Sections -->
-      <section class="mt-6">
-        <h3 class="text-xl font-semibold">Objectives</h3>
-        <p class="mt-2 text-black">
-          As a final-year IT student with hands-on experience in Back-End,
-          Front-End, and Mobile development, I am eager to expand my technical
-          expertise by taking on new challenges and opportunities that enhance
-          my skills and industry knowledge.
-        </p>
-      </section>
-
-      <section class="mt-6">
-        <h3 class="text-xl font-semibold">Education & Experience</h3>
-        <div class="mt-2 space-y-4">
-          <div>
-            <h4 class="font-semibold">
-              🎓 Bachelor of Computer Science (2021 - Present)
-            </h4>
-            <p class="text-black">
-              Coursework: Software Architecture, UI Design and Evaluation,
-              Scalable and Distributed Computing, Principles of Database
-              Management.
-            </p>
+      <main class="p-6 bg-white text-black shadow-lg rounded-lg">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center border-b pb-4"
+        >
+          <div class="flex items-center space-x-4">
+            <img
+              src="./Avatar.jpg"
+              alt="Avatar"
+              class="w-16 h-16 md:w-24 md:h-24 rounded-lg shadow-md"
+            />
+            <div>
+              <h2 class="text-2xl font-semibold">Nguyen Tuan Khoa</h2>
+              <p class="text-black">Software Development Intern</p>
+            </div>
           </div>
-          <div>
-            <h4 class="font-semibold">
-              💼 Backend Intern (Feb 2024 - Present)
-            </h4>
-            <p class="text-black">
-              Develop and maintain the company's website and API
-            </p>
-            <p class="text-black">
-              Research new technology and framework to apply to the company's
-              projects.
+          <div class="mt-4 md:mt-0 text-sm">
+            <p>📍 Ward 9, District 10, Ho Chi Minh</p>
+            <p>📞 (+84) 909 801 582</p>
+            <p>
+              📧
+              <a href="mailto:khoanguyen030803@gmail.com" class="text-blue-500"
+                >khoanguyen030803@gmail.com</a
+              >
             </p>
           </div>
         </div>
-      </section>
 
-      <section class="mt-6">
-        <h3 class="text-xl font-semibold">Skills</h3>
-        <p class="mt-2 text-black">
-          React.js, Node.js, Express.js, React Native, RESTful API, GraphQL,
-          Postgraphile, Microsoft SQL Server, MongoDB, Docker.
-        </p>
-        <h3 class="text-xl font-semibold">Other</h3>
-        <p class="mt-2 text-black">Git, Tailwind, Figma.</p>
-      </section>
+        <!-- Sections -->
+        <section class="mt-6">
+          <h3 class="text-xl font-semibold">Objectives</h3>
+          <p class="mt-2 text-black">
+            As a final-year IT student with hands-on experience in Back-End,
+            Front-End, and Mobile development, I am eager to expand my technical
+            expertise by taking on new challenges and opportunities that enhance
+            my skills and industry knowledge.
+          </p>
+        </section>
 
-      <section class="mt-6">
-        <h3 class="text-xl font-semibold">Projects</h3>
-        <div class="mt-2 space-y-4">
-          <div>
-            <h4 class="font-semibold">🎮 Bomberman (Nov 2021 - Jan 2022)</h4>
-            <p class="text-black">
-              Developed a game based on Bomberman using Java with a team of 5.
-            </p>
+        <section class="mt-6">
+          <h3 class="text-xl font-semibold">Education & Experience</h3>
+          <div class="mt-2 space-y-4">
+            <div>
+              <h4 class="font-semibold">
+                🎓 Bachelor of Computer Science (2021 - Present)
+              </h4>
+              <p class="text-black">
+                Coursework: Software Architecture, UI Design and Evaluation,
+                Scalable and Distributed Computing, Principles of Database
+                Management.
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold">
+                💼 Backend Intern (Feb 2024 - Present)
+              </h4>
+              <p class="text-black">
+                Develop and maintain the company's website and API
+              </p>
+              <p class="text-black">
+                Research new technology and framework to apply to the company's
+                projects.
+              </p>
+            </div>
           </div>
-          <div>
-            <h4 class="font-semibold">
-              🎯 Catch Me If You Can (May 2023 - June 2023)
-            </h4>
-            <p class="text-black">
-              Developed an algorithm-based game using Java.
-            </p>
-          </div>
-          <div>
-            <h4 class="font-semibold">📋 TASKing (Sep 2023 - Jan 2024)</h4>
-            <p class="text-black">
-              A web-based task management app built with Next.js, Node.js, and
-              MongoDB.
-            </p>
-          </div>
-          <div>
-            <h4 class="font-semibold">
-              📦 Parcel Locker (March 2024 - Present)
-            </h4>
-            <p class="text-black">
-              Leader of the mobile development team for a parcel management
-              system.
-            </p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="mt-6">
-        <h3 class="text-xl font-semibold">Certifications</h3>
-        <p class="mt-2 text-black">📜 IELTS 6.5 (2022)</p>
-      </section>
+        <section class="mt-6">
+          <h3 class="text-xl font-semibold">Skills</h3>
+          <p class="mt-2 text-black">
+            React.js, Node.js, Express.js, React Native, RESTful API, GraphQL,
+            Postgraphile, Microsoft SQL Server, MongoDB, Docker.
+          </p>
+          <h3 class="text-xl font-semibold">Other</h3>
+          <p class="mt-2 text-black">Git, Tailwind, Figma.</p>
+        </section>
 
-      <section class="mt-6">
-        <h3 class="text-xl font-semibold">Social Media</h3>
-        <div class="flex space-x-4 mt-2">
-          <a
-            href="https://www.linkedin.com/in/khoanguyen030803/"
-            class="text-blue-500 hover:text-blue-700"
-          >
-            <i class="fa fa-linkedin"></i> LinkedIn
-          </a>
-          <a
-            href="https://github.com/AlexPerdron"
-            class="text-gray-500 hover:text-gray-700"
-          >
-            <i class="fa fa-github"></i> GitHub
-          </a>
-        </div>
-      </section>
-    </main>
+        <section class="mt-6">
+          <h3 class="text-xl font-semibold">Projects</h3>
+          <div class="mt-2 space-y-4">
+            <div>
+              <h4 class="font-semibold">🎮 Bomberman (Nov 2021 - Jan 2022)</h4>
+              <p class="text-black">
+                Developed a game based on Bomberman using Java with a team of 5.
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold">
+                🎯 Catch Me If You Can (May 2023 - June 2023)
+              </h4>
+              <p class="text-black">
+                Developed an algorithm-based game using Java.
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold">📋 TASKing (Sep 2023 - Jan 2024)</h4>
+              <p class="text-black">
+                A web-based task management app built with Next.js, Node.js, and
+                MongoDB.
+              </p>
+            </div>
+            <div>
+              <h4 class="font-semibold">
+                📦 Parcel Locker (March 2024 - Present)
+              </h4>
+              <p class="text-black">
+                Leader of the mobile development team for a parcel management
+                system.
+              </p>
+            </div>
+          </div>
+        </section>
 
+        <section class="mt-6">
+          <h3 class="text-xl font-semibold">Certifications</h3>
+          <p class="mt-2 text-black">📜 IELTS 6.5 (2022)</p>
+        </section>
+
+        <section class="mt-6">
+          <h3 class="text-xl font-semibold">Social Media</h3>
+          <div class="flex space-x-4 mt-2">
+            <a
+              href="https://www.linkedin.com/in/khoanguyen030803/"
+              class="text-blue-500 hover:text-blue-700"
+            >
+              <i class="fa fa-linkedin"></i> LinkedIn
+            </a>
+            <a
+              href="https://github.com/AlexPerdron"
+              class="text-gray-500 hover:text-gray-700"
+            >
+              <i class="fa fa-github"></i> GitHub
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
     <footer class="text-center text-gray-400 p-6">
       <p>© 2024 Nguyen Tuan Khoa. All rights reserved.</p>
       <p>
