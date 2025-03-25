@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       body.classList.add('bg-gray-900', 'text-gray-100');
       nav.classList.add('bg-gray-800', 'text-white');
       main.classList.add('bg-gray-800', 'text-white');
-      paragraphs.forEach((p) => p.classList.add('text-gray-400'));
+      paragraphs.forEach((p) => p.classList.add('text-white'));
       toggleButton.classList.add('bg-gray-700', 'text-white', 'hover:bg-gray-600');
       toggleButton.classList.remove('bg-white', 'text-black' , 'hover:bg-gray-200');
       toggleButton.textContent = '☀️ Light Mode';
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       body.classList.remove('bg-gray-900', 'text-gray-100');
       nav.classList.remove('bg-gray-800', 'text-white');
       main.classList.remove('bg-gray-800', 'text-white');
-      paragraphs.forEach((p) => p.classList.remove('text-gray-400'));
+      paragraphs.forEach((p) => p.classList.remove('text-white'));
       toggleButton.classList.remove('bg-gray-700', 'text-white', 'hover:bg-gray-600');
       toggleButton.classList.add('bg-white', 'text-black', 'hover:bg-gray-200');  
       toggleButton.textContent = '🌙 Dark Mode';
