@@ -1,0 +1,221 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nguyen Tuan Khoa - Cover Letter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleButton = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+        const nav = document.querySelector('nav');
+        const main = document.querySelector('main');
+        const paragraphs = document.querySelectorAll('p');
+
+        // Function to apply dark mode styles
+        function applyDarkMode(isDark) {
+          if (isDark) {
+            body.classList.add('bg-gray-900', 'text-gray-100');
+            nav.classList.add('bg-gray-800', 'text-white');
+            main.classList.add('bg-gray-800', 'text-white');
+            paragraphs.forEach((p) => p.classList.add('text-gray-400'));
+            toggleButton.classList.add('bg-gray-700', 'text-white', 'hover:bg-gray-600');
+            toggleButton.classList.remove('bg-white', 'text-black' , 'hover:bg-gray-200');
+            toggleButton.textContent = '☀️ Light Mode';
+            localStorage.setItem('dark-mode', 'enabled');
+          } else {
+            body.classList.remove('bg-gray-900', 'text-gray-100');
+            nav.classList.remove('bg-gray-800', 'text-white');
+            main.classList.remove('bg-gray-800', 'text-white');
+            paragraphs.forEach((p) => p.classList.remove('text-gray-400'));
+            toggleButton.classList.remove('bg-gray-700', 'text-white', 'hover:bg-gray-600');
+            toggleButton.classList.add('bg-white', 'text-black', 'hover:bg-gray-200');  
+            toggleButton.textContent = '🌙 Dark Mode';
+            localStorage.setItem('dark-mode', 'disabled');
+          }
+        }
+
+        // Check local storage and apply saved theme
+        const darkModeEnabled = localStorage.getItem('dark-mode') === 'enabled';
+        applyDarkMode(darkModeEnabled);
+
+        // Toggle mode when button is clicked
+        toggleButton.addEventListener('click', () => {
+          const isDarkMode = !body.classList.contains("bg-gray-900");
+          applyDarkMode(isDarkMode);
+        });
+      });
+    </script>
+  </head>
+  <body class="bg-gray-200 text-black transition-all duration-300">
+    <nav class="bg-white text-black shadow-md p-4">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <h1 class="text-xl font-bold">NguyenTuanKhoa</h1>
+        <div class="space-x-6 hidden md:flex">
+          <a href="/root/index.html" class="hover:text-blue-500">Home</a>
+          <a href="/root/coming_soon.html" class="hover:text-blue-500"
+            >Projects</a
+          >
+          <a href="/root/coming_soon.html" class="hover:text-blue-500"
+            >Contact</a
+          >
+        </div>
+        <button
+          id="dark-mode-toggle"
+          class="p-2 rounded shadow-md transition duration-300"
+        >
+          🌙 Dark Mode
+        </button>
+      </div>
+    </nav>
+
+    <main
+      class="max-w-6xl mx-auto p-6 mt-6 bg-white text black shadow-lg rounded-lg"
+    >
+      <!-- Header -->
+      <div
+        class="flex flex-col md:flex-row justify-between items-center border-b pb-4"
+      >
+        <div class="flex items-center space-x-4">
+          <img
+            src="/asset/Avatar.jpg"
+            alt="Avatar"
+            class="w-24 h-24 rounded-lg shadow-md"
+          />
+          <div>
+            <h2 class="text-2xl font-semibold">Nguyen Tuan Khoa</h2>
+            <p class="text-black">Software Development Intern</p>
+          </div>
+        </div>
+        <div class="mt-4 md:mt-0 text-sm">
+          <p>📍 Su Van Hanh Street, Ward 9, District 10, Ho Chi Minh</p>
+          <p>📞 (+84) 909 801 582</p>
+          <p>
+            📧
+            <a href="mailto:khoanguyen030803@gmail.com" class="text-blue-500"
+              >khoanguyen030803@gmail.com</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <!-- Sections -->
+      <section class="mt-6">
+        <h3 class="text-xl font-semibold">Objectives</h3>
+        <p class="mt-2 text-black">
+          As a third-year IT student, I've tackled various programming languages
+          across backend, frontend, and mobile fields. I seek new challenges and
+          job opportunities to further develop my skills and expertise.
+        </p>
+      </section>
+
+      <section class="mt-6">
+        <h3 class="text-xl font-semibold">Education & Experience</h3>
+        <div class="mt-2 space-y-4">
+          <div>
+            <h4 class="font-semibold">
+              🎓 Bachelor of Computer Science (2021 - Present)
+            </h4>
+            <p class="text-black">
+              Currently a junior at International University - Vietnam National
+              University Ho Chi Minh City.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold">
+              💼 Backend Intern (Feb 2024 - Present)
+            </h4>
+            <p class="text-black">
+              Working at Anh Quan Technology Company. Developing and maintaining
+              websites, APIs, and researching new technologies.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-6">
+        <h3 class="text-xl font-semibold">Skills</h3>
+        <p class="mt-2 text-black">
+          HTML/CSS, React.js, Node.js, Express.js, RESTful API, GraphQL,
+          MongoDB, SQL, React Native, Git/Source control.
+        </p>
+      </section>
+
+      <section class="mt-6">
+        <h3 class="text-xl font-semibold">Projects</h3>
+        <div class="mt-2 space-y-4">
+          <div>
+            <h4 class="font-semibold">🎮 Bomberman (Nov 2021 - Jan 2022)</h4>
+            <p class="text-black">
+              Developed a game based on Bomberman using Java with a team of 5.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold">
+              🎯 Catch Me If You Can (May 2023 - June 2023)
+            </h4>
+            <p class="text-black">
+              Developed an algorithm-based game using Java.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold">📋 TASKing (Sep 2023 - Jan 2024)</h4>
+            <p class="text-black">
+              A web-based task management app built with Next.js, Node.js, and
+              MongoDB.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold">
+              📦 Parcel Locker (March 2024 - Present)
+            </h4>
+            <p class="text-black">
+              Leader of the mobile development team for a parcel management
+              system.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-6">
+        <h3 class="text-xl font-semibold">Certifications</h3>
+        <p class="mt-2 text-black">📜 IELTS 6.0 (2022)</p>
+      </section>
+
+      <section class="mt-6">
+        <h3 class="text-xl font-semibold">Social Media</h3>
+        <div class="flex space-x-4 mt-2">
+          <a
+            href="https://www.linkedin.com/in/khoanguyen030803/"
+            class="text-blue-500 hover:text-blue-700"
+          >
+            <i class="fa fa-linkedin"></i> LinkedIn
+          </a>
+          <a
+            href="https://github.com/AlexPerdron"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <i class="fa fa-github"></i> GitHub
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-6 text-center text-gray-400">
+      <p>© 2024 Nguyen Tuan Khoa. All rights reserved.</p>
+      <p>
+        Contact:
+        <a
+          href="mailto:khoanguyen030803@gmail.com"
+          class="text-blue-500 hover:text-blue-700"
+        >
+          khoanguyen030803@gmail.com
+        </a>
+        | Phone:
+        <a href="tel:+84909801582" class="text-blue-500 hover:text-blue-700"
+          >(+84) 909 801 582</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
