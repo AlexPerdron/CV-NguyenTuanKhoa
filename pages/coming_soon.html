@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coming Soon</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./darkmode.js"></script>
-    <script src="./mobile_menu.js"></script>
+    <script src="../utils/darkmode.js"></script>
+    <script src="../utils/mobile_menu.js"></script>
   </head>
   <body class="bg-gray-200 text-black transition-all duration-300">
     <nav class="bg-white text-black shadow-md p-4">
@@ -30,20 +30,20 @@
           class="fixed bg-white top-0 left-0 w-64 h-full transform -translate-x-full transition-transform duration-300 md:hidden"
         >
           <button id="close-menu" class="absolute top-4 right-4">
-            <img src="./close.png" alt="Close" class="w-4 h-4" />
+            <img src="../assets/close.png" alt="Close" class="w-4 h-4" />
           </button>
           <div
             class="flex flex-row items-center justify-center mt-12 space-x-4"
           >
             <img
-              src="./Logo.jpg"
+              src="../assets/Logo.jpg"
               alt="Avatar"
               class="w-8 h-8 rounded-full shadow-md"
             />
             <h1 class="text-xl font-bold">AlexPerdron</h1>
           </div>
           <ul class="mt-12 space-y-6 text-center">
-            <li><a href="./index.html" class="block py-2 px-4">Résumé</a></li>
+            <li><a href="../index.html" class="block py-2 px-4">Résumé</a></li>
             <li>
               <a href="./coming_soon.html" class="block py-2 px-4">Projects</a>
             </li>
@@ -56,17 +56,17 @@
         <div
           type="button"
           class="hidden md:flex md:items-center md:space-x-4"
-          onClick="window.location.href='./index.html'"
+          onClick="window.location.href='../index.html'"
         >
           <img
-            src="./Logo.jpg"
+            src="../assets/Logo.jpg"
             alt="Avatar"
             class="w-8 h-8 rounded-full shadow-md"
           />
           <h1 class="text-xl font-bold">AlexPerdron</h1>
         </div>
         <div class="space-x-6 hidden md:flex">
-          <a href="./index.html" class="hover:text-green-500">Résumé</a>
+          <a href="../index.html" class="hover:text-green-500">Résumé</a>
           <a href="./coming_soon.html" class="hover:text-green-500">Projects</a>
           <a href="./coming_soon.html" class="hover:text-green-500">About</a>
         </div>
