@@ -5,24 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coming Soon</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/utils/darkmode.js"></script>
   </head>
-  <body
-    class="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white text-center px-4"
-  >
-    <button
-      id="dark-mode-toggle"
-      class="absolute top-4 right-4 bg-gray-700 text-white px-4 py-2 rounded-md"
+  <body class="bg-gray-200 text-black transition-all duration-300">
+    <nav class="bg-white text-black shadow-md p-4">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <h1 class="text-xl font-bold">NguyenTuanKhoa</h1>
+        <div class="space-x-6 hidden md:flex">
+          <a href="/root/index.html" class="hover:text-blue-500">Home</a>
+          <a href="/root/coming_soon.html" class="hover:text-blue-500"
+            >Projects</a
+          >
+          <a href="/root/coming_soon.html" class="hover:text-blue-500"
+            >Contact</a
+          >
+        </div>
+        <button
+          id="dark-mode-toggle"
+          class="p-2 rounded shadow-md transition duration-300"
+        >
+          🌙 Dark Mode
+        </button>
+      </div>
+    </nav>
+
+    <main
+      class="flex flex-col items-center justify-center min-h-screen max-w-6xl mx-auto p-6 mt-6 bg-white shadow-lg rounded-lg"
     >
-      🌙 Dark Mode
-    </button>
-
-    <!-- Logo or Branding -->
-    <h1 class="text-4xl font-bold mb-4">🚀 Coming Soon</h1>
-    <p class="text-lg text-gray-300 mb-6">
-      I am working hard to bring something amazing! Stay tuned.
-    </p>
-
-    <footer class="mt-6 text-center text-gray-500 dark:text-gray-400">
+      <h1 class="text-4xl font-bold mb-4">🚀 Coming Soon</h1>
+      <p class="text-lg text-gray-500 mb-6">
+        I am working hard to bring something amazing! Stay tuned.
+      </p>
+    </main>
+    <footer class="mt-6 text-center text-gray-900 dark:text-gray-400">
       <p>© 2024 Nguyen Tuan Khoa. All rights reserved.</p>
       <p>
         Contact:
@@ -40,26 +55,7 @@
           >(+84) 909 801 582</a
         >
       </p>
+    
     </footer>
-
-    <script>
-      const toggleButton = document.getElementById('dark-mode-toggle');
-      const body = document.body;
-
-      toggleButton.addEventListener('click', () => {
-        body.classList.toggle('bg-gray-900');
-        body.classList.toggle('bg-white');
-        body.classList.toggle('text-white');
-        body.classList.toggle('text-gray-900');
-        toggleButton.textContent = body.classList.contains('bg-gray-900')
-          ? '🌙 Dark Mode'
-          : '☀️ Light Mode';
-      });
-    </script>
-    <!-- Font Awesome for Icons -->
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
