@@ -6,6 +6,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./utils/darkmode.js"></script>
     <script src="./utils/mobile_menu.js"></script>
+    <script src="utils/links.js"></script>
   </head>
   <body class="bg-gray-200 text-black transition-all duration-300">
     <!-- NavBar -->
@@ -82,7 +83,7 @@
 
     <!-- Main Content -->
     <div
-      class="container max-w-[90%] xl:max-w-6xl mx-auto flex flex-col items-center justify-center"
+      class="container max-w-[90%] xl:max-w-6xl mx-auto flex flex-col items-center justify-center font-serif"
     >
       <div class="flex justify-end w-full py-6">
         <a
@@ -98,7 +99,7 @@
       </div>
       <main class="p-6 bg-white text-black shadow-lg rounded-lg">
         <div
-          class="flex flex-col md:flex-row justify-between items-center border-b pb-4"
+          class="flex flex-col md:flex-row justify-between items-center pb-4"
         >
           <div class="flex items-center space-x-4">
             <img
@@ -112,7 +113,7 @@
             </div>
           </div>
           <div class="mt-4 md:mt-0 text-sm">
-            <p>📍 Ward 9, District 10, Ho Chi Minh</p>
+            <p>📍 District 10, Ho Chi Minh</p>
             <p>📞 (+84) 909 801 582</p>
             <p>
               📧
@@ -125,7 +126,7 @@
 
         <!-- Sections -->
         <section class="mt-6">
-          <h3 class="text-xl font-semibold">Objectives</h3>
+          <h3 class="text-xl font-semibold border-b pb-2">Objectives</h3>
           <p class="mt-2 text-black">
             As a final-year IT student with hands-on experience in Back-End,
             Front-End, and Mobile development, I am eager to expand my technical
@@ -135,75 +136,167 @@
         </section>
 
         <section class="mt-6">
-          <h3 class="text-xl font-semibold">Education & Experience</h3>
+          <h3 class="text-xl font-semibold border-b pb-2">
+            Education & Experience
+          </h3>
           <div class="mt-2 space-y-4">
             <div>
-              <h4 class="font-semibold">
-                🎓 Bachelor of Computer Science (2021 - Present)
-              </h4>
-              <p class="text-black">
-                Coursework: Software Architecture, UI Design and Evaluation,
-                Scalable and Distributed Computing, Principles of Database
-                Management.
-              </p>
+              <div class="flex items-center justify-between">
+                <h4 class="font-semibold">
+                  🎓 International University- Vietnam National University HCMC
+                </h4>
+                <h4 class="italic">2021 - Present</h4>
+              </div>
+              <p class="text-black italic pt-2">Bachelor of Computer Science</p>
+              <ul class="list-disc pl-6 pt-2">
+                <li>
+                  Coursework: Software Architecture, UI Design and Evaluation,
+                  Scalable and Distributed Computing, Principles of Database
+                  Management.
+                </li>
+              </ul>
             </div>
             <div>
-              <h4 class="font-semibold">
-                💼 Backend Intern (Feb 2024 - Present)
-              </h4>
-              <p class="text-black">
-                Develop and maintain the company's website and API
-              </p>
-              <p class="text-black">
-                Research new technology and framework to apply to the company's
-                projects.
-              </p>
+              <div class="flex items-center justify-between">
+                <h4 class="font-semibold">💼 Backend Intern</h4>
+                <h4 class="italic">Feb 2024 – May 2024</h4>
+              </div>
+              <p class="text-black italic pt-2">Anh Quan Technology Company</p>
+              <ul class="list-disc pl-6 pt-2">
+                <li>Develop and maintain the company's website and API</li>
+                <li>
+                  Research new technology and framework to apply to the
+                  company's projects.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div class="flex items-center justify-between">
+                <h4 class="font-semibold">💼 Software Engineer Intern</h4>
+                <h4 class="italic">Jan 2025 – Present</h4>
+              </div>
+              <p class="text-black italic pt-2">VNEMEX Company Limited</p>
+              <ul class="list-disc pl-6 pt-2">
+                <li>Develop UI for both website and mobile interfaces</li>
+              </ul>
             </div>
           </div>
         </section>
 
         <section class="mt-6">
-          <h3 class="text-xl font-semibold">Skills</h3>
-          <p class="mt-2 text-black">
-            React.js, Node.js, Express.js, React Native, RESTful API, GraphQL,
-            Postgraphile, Microsoft SQL Server, MongoDB, Docker.
-          </p>
-          <h3 class="text-xl font-semibold">Other</h3>
-          <p class="mt-2 text-black">Git, Tailwind, Figma.</p>
+          <h3 class="text-xl font-semibold border-b pb-2">Technologies</h3>
+          <ul class="list-disc pl-6 pt-2">
+            <li>
+              <a class="font-bold">Languages:</a> HTML/CSS, C/C++, JavaScript,
+              TypeScript, SQL.
+            </li>
+            <li>
+              <a class="font-bold">Technologies:</a> React.js, Node.js,
+              Express.js, React Native, RESTful API, GraphQL, Postgraphile,
+              Microsoft SQL Server, MongoDB, Docker.
+            </li>
+            <li><a class="font-bold">Other:</a> Git, Tailwind, Figma.</li>
+          </ul>
         </section>
 
         <section class="mt-6">
           <h3 class="text-xl font-semibold">Projects</h3>
           <div class="mt-2 space-y-4">
             <div>
-              <h4 class="font-semibold">🎮 Bomberman (Nov 2021 - Jan 2022)</h4>
-              <p class="text-black">
-                Developed a game based on Bomberman using Java with a team of 5.
-              </p>
+              <div class="flex items-center justify-between">
+                <h4 class="font-semibold">🎮 Bomberman Adventure</h4>
+                <div
+                  type="button"
+                  class="flex items-center space-x-2"
+                  onClick="openInNewTab('https://github.com/AlexPerdron/Bomberman-Adventure')"
+                >
+                  <p
+                    class="hidden md:block text-blue-500 hover:text-blue-700 italic underline"
+                  >
+                    github.com/AlexPerdron/Bomberman-Adventure
+                  </p>
+                  <img src="./assets/share.png" alt="share" class="w-4 h-4" />
+                </div>
+              </div>
+              <ul class="list-disc pl-6 pt-2">
+                <li>
+                  Developed a classic Bomberman game with a team of five to
+                  deepen the knowledge of object-oriented programming.
+                </li>
+                <li>Tools used: Java.</li>
+              </ul>
             </div>
             <div>
-              <h4 class="font-semibold">
-                🎯 Catch Me If You Can (May 2023 - June 2023)
-              </h4>
-              <p class="text-black">
-                Developed an algorithm-based game using Java.
-              </p>
+              <div class="flex items-center justify-between">
+                <h4 class="font-semibold">🎯 Catch Me If You Can</h4>
+                <div
+                  type="button"
+                  class="flex items-center space-x-2"
+                  onClick="openInNewTab('https://github.com/AlexPerdron/Bomberman-Adventure')"
+                >
+                  <p
+                    class="hidden md:block text-blue-500 hover:text-blue-700 italic underline"
+                  >
+                    github.com/AlexPerdron/Catch-Me-If-You-Can
+                  </p>
+                  <img src="./assets/share.png" alt="share" class="w-4 h-4" />
+                </div>
+              </div>
+              <ul class="list-disc pl-6 pt-2">
+                <li>
+                  Applying knowledge of Data Analysis and Path-finding Algorithm
+                  in the form of a playing-catch game.
+                </li>
+                <li>Tools used: Java.</li>
+              </ul>
             </div>
             <div>
-              <h4 class="font-semibold">📋 TASKing (Sep 2023 - Jan 2024)</h4>
-              <p class="text-black">
-                A web-based task management app built with Next.js, Node.js, and
-                MongoDB.
-              </p>
+              <div class="flex items-center justify-between">
+                <h4 class="font-semibold">📋 TASKing</h4>
+                <div
+                  type="button"
+                  class="flex items-center space-x-2"
+                  onClick="openInNewTab('https://github.com/AlexPerdron/Bomberman-Adventure')"
+                >
+                  <p
+                    class="hidden md:block text-blue-500 hover:text-blue-700 italic underline"
+                  >
+                    github.com/AlexPerdron/task-manager-be
+                  </p>
+                  <img src="./assets/share.png" alt="share" class="w-4 h-4" />
+                </div>
+              </div>
+              <ul class="list-disc pl-6 pt-2">
+                <li>
+                  Develop a web-based application that manages all the details
+                  of tasks in a team project or personal work.
+                </li>
+                <li>
+                  Develop the APIs and applying Docker to deploy database and
+                  vercel for server.
+                </li>
+                <li>
+                  Tools Used: TypeScript, MongoDB, Prisma, NodeJS, ExpressJS,
+                  Docker, RESTful API.
+                </li>
+              </ul>
             </div>
             <div>
-              <h4 class="font-semibold">
-                📦 Parcel Locker (March 2024 - Present)
-              </h4>
-              <p class="text-black">
-                Leader of the mobile development team for a parcel management
-                system.
-              </p>
+              <div class="flex items-center justify-between">
+                <h4 class="font-semibold">📦 Parcel Locker</h4>
+                <h4 class="italic">2024</h4>
+              </div>
+              <ul class="list-disc pl-6 pt-2">
+                <li>
+                  Develop a mobile application that manages all customer
+                  packages in a locker system.
+                </li>
+                <li>
+                  Managed UI teams, ensuring smooth collaboration between design
+                  and development for optimized UI.
+                </li>
+                <li>Tools used: React Native, Tailwind, Figma.</li>
+              </ul>
             </div>
           </div>
         </section>
