@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('nav');
   const main = document.querySelector('main');
   const paragraphs = document.querySelectorAll('p');
+  const custom = document.getElementsByClassName('custom');
 
   // Function to apply dark mode styles
   function applyDarkMode(isDark) {
@@ -16,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleButton.classList.remove('bg-white', 'text-black' , 'hover:bg-gray-200');
       toggleButton.textContent = '☀️ Light Mode';
       localStorage.setItem('dark-mode', 'enabled');
+      if (custom) {
+        for (let i = 0; i < custom.length; i++) {
+          custom[i].classList.add('bg-gray-700', 'text-white', 'hover:bg-gray-600');
+        }
+      }
     } else {
       body.classList.remove('bg-gray-900', 'text-gray-100');
       nav.classList.remove('bg-gray-800', 'text-white');
@@ -25,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleButton.classList.add('bg-white', 'text-black', 'hover:bg-gray-200');  
       toggleButton.textContent = '🌙 Dark Mode';
       localStorage.setItem('dark-mode', 'disabled');
+      if (custom) {
+        for (let i = 0; i < custom.length; i++) {
+          custom[i].classList.remove('bg-gray-700', 'text-white', 'hover:bg-gray-600');
+        }
+      }
     }
   }
 
@@ -36,5 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleButton.addEventListener('click', () => {
     const isDarkMode = !body.classList.contains("bg-gray-900");
     applyDarkMode(isDarkMode);
+    console.log(`Dark mode is now ${isDarkMode ? 'enabled' : 'disabled'}`);
   });
 });

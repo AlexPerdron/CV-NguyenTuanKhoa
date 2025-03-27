@@ -1,14 +1,16 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coming Soon</title>
+    <title>Nguyen Tuan Khoa - Cover Letter</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./utils/darkmode.js"></script>
     <script src="./utils/mobile_menu.js"></script>
+    <script src="./utils/links.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/js/fontawesome.min.js"></script>
   </head>
   <body class="bg-gray-200 text-black transition-all duration-300">
+    <!-- NavBar -->
     <nav class="bg-white text-black shadow-md p-4">
       <div class="max-w-6xl mx-auto flex justify-between items-center">
         <!-- Mobile -->
@@ -63,7 +65,7 @@
             alt="Avatar"
             class="w-8 h-8 rounded-full shadow-md"
           />
-          <h1 class="text-xl font-bold">AlexPerdron</h1>
+          <h1 class="text-xl font-bold font-serif">AlexPerdron</h1>
         </div>
         <div class="space-x-6 hidden md:flex">
           <a href="./index.html" class="hover:text-green-500">Résumé</a>
@@ -80,15 +82,51 @@
       </div>
     </nav>
 
+    <!-- Main Content -->
     <main
-      class="flex flex-col items-center justify-center min-h-auto max-w-[90%] xl:max-w-6xl mx-auto p-6 mt-6 bg-white shadow-lg rounded-lg"
+      class="container max-w-[90%] xl:max-w-6xl mx-auto flex flex-col items-center justify-center font-serif bg-white shadow-lg rounded-lg mt-6"
     >
-      <h1 class="text-4xl font-bold mb-4 text-center">🚀 Coming Soon</h1>
-      <p class="text-lg text-gray-500 mb-6 text-center">
-        I am working hard to bring something amazing! Stay tuned.
-      </p>
+        <div class="bg-[url('./assets/background.jpg')] bg-cover bg-center h-[420px] w-full rounded-lg shadow-lg relative">
+          <div class="absolute right-0 top-0 rounded-lg pt-4 pr-7">
+            <h1 class="text-4xl text-white font-bold text-center">
+              About me
+            </h1>
+          </div>
+
+          <div class="hidden md:grid md:grid-cols-2 gap-4 p-6 md:absolute md:left-0 md:bottom-0">
+            <div class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center">
+              <img
+                src="./assets/headset.png"
+                alt="Contact"
+                class="w-6 h-6"
+              />
+            </div>
+            <div class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center">
+              <img
+                src="./assets/headset.png"
+                alt="Contact"
+                class="w-6 h-6"
+              />
+            </div>
+            <div class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center">
+              <img
+                src="./assets/headset.png"
+                alt="Contact"
+                class="w-6 h-6"
+              />
+            </div>
+            <div class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center">
+              <img
+                src="./assets/headset.png"
+                alt="Contact"
+                class="w-6 h-6"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
-    <footer class="text-center text-gray-900 p-6">
+    <footer class="text-center flex flex-col text-gray-400 p-6">
       <div class="flex justify-center space-x-6 pb-2">
         <a
           href="https://www.linkedin.com/in/khoanguyen030803/"
@@ -119,8 +157,8 @@
           <img src="./assets/facebook.png" alt="Facebook" class="w-8 h-8" />
         </a>
       </div>
-      <p>© 2024 Nguyen Tuan Khoa. All rights reserved.</p>
-      <p>
+      <text>© 2024 Nguyen Tuan Khoa. All rights reserved.</text>
+      <text>
         Contact:
         <a
           href="mailto:khoanguyen030803@gmail.com"
@@ -129,10 +167,10 @@
           khoanguyen030803@gmail.com
         </a>
         | Phone:
-        <a href="tel:+84909801582" class="text-blue-500 hover:text-blue-700"
-          >(+84) 909 801 582</a
-        >
-      </p>
+        <a href="tel:+84909801582" class="text-blue-500 hover:text-blue-700">
+          (+84) 909 801 582
+        </a>
+      </text>
     </footer>
   </body>
 </html>
