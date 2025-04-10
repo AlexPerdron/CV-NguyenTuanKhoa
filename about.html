@@ -17,7 +17,7 @@
         <div class="flex items-center md:hidden">
           <button
             id="menu-toggle"
-            class="p-2 rounded shadow-md transition duration-300"
+            class="custom p-2 rounded shadow-md transition duration-300"
           >
             ☰
           </button>
@@ -25,11 +25,11 @@
         <!-- Mobile Menu-->
         <div
           id="overlay"
-          class="fixed inset-0 bg-black bg-opacity-50 hidden transition-opacity"
+          class="fixed inset-0 bg-black bg-opacity-50 hidden transition-opacity z-10"
         ></div>
         <div
           id="mobile-menu"
-          class="fixed bg-white top-0 left-0 w-64 h-full transform -translate-x-full transition-transform duration-300 md:hidden"
+          class="custom fixed bg-white top-0 left-0 w-64 h-full transform -translate-x-full transition-transform duration-300 md:hidden z-20"
         >
           <button id="close-menu" class="absolute top-4 right-4">
             <img src="./assets/close.png" alt="Close" class="w-4 h-4" />
@@ -50,7 +50,7 @@
               <a href="./coming_soon.html" class="block py-2 px-4">Projects</a>
             </li>
             <li>
-              <a href="./about.html" class="block py-2 px-4">About</a>
+              <a href="./coming_soon.html" class="block py-2 px-4">About</a>
             </li>
           </ul>
         </div>
@@ -70,7 +70,7 @@
         <div class="space-x-6 hidden md:flex">
           <a href="./index.html" class="hover:text-green-500">Résumé</a>
           <a href="./coming_soon.html" class="hover:text-green-500">Projects</a>
-          <a href="./about.html" class="hover:text-green-500">About</a>
+          <a href="./coming_soon.html" class="hover:text-green-500">About</a>
         </div>
         <!-- Theme Button -->
         <button
@@ -86,42 +86,35 @@
     <main
       class="container max-w-[90%] xl:max-w-6xl mx-auto flex flex-col items-center justify-center font-serif bg-white shadow-lg rounded-lg mt-6"
     >
-        <div class="bg-[url('./assets/background.jpg')] bg-cover bg-center h-[420px] w-full rounded-lg shadow-lg relative">
-          <div class="absolute right-0 top-0 rounded-lg pt-4 pr-7">
-            <h1 class="text-4xl text-white font-bold text-center">
-              About me
-            </h1>
-          </div>
+      <div
+        class="relative bg-[url('./assets/background.jpg')] bg-cover bg-center h-[420px] w-full rounded-lg shadow-lg"
+      >
+        <div class="absolute right-0 top-0 rounded-lg pt-4 pr-7">
+          <h1 class="text-4xl text-white font-bold text-center">About me</h1>
+        </div>
 
-          <div class="hidden md:grid md:grid-cols-2 gap-4 p-6 md:absolute md:left-0 md:bottom-0">
-            <div class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center">
-              <img
-                src="./assets/headset.png"
-                alt="Contact"
-                class="w-6 h-6"
-              />
-            </div>
-            <div class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center">
-              <img
-                src="./assets/headset.png"
-                alt="Contact"
-                class="w-6 h-6"
-              />
-            </div>
-            <div class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center">
-              <img
-                src="./assets/headset.png"
-                alt="Contact"
-                class="w-6 h-6"
-              />
-            </div>
-            <div class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center">
-              <img
-                src="./assets/headset.png"
-                alt="Contact"
-                class="w-6 h-6"
-              />
-            </div>
+        <div
+          class="hidden md:grid md:grid-cols-2 gap-4 p-6 md:absolute md:left-0 md:bottom-0"
+        >
+          <div
+            class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center"
+          >
+            <img src="./assets/headset.png" alt="Contact" class="w-6 h-6" />
+          </div>
+          <div
+            class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center"
+          >
+            <img src="./assets/headset.png" alt="Contact" class="w-6 h-6" />
+          </div>
+          <div
+            class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center"
+          >
+            <img src="./assets/headset.png" alt="Contact" class="w-6 h-6" />
+          </div>
+          <div
+            class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center"
+          >
+            <img src="./assets/headset.png" alt="Contact" class="w-6 h-6" />
           </div>
         </div>
       </div>

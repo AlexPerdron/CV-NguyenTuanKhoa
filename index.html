@@ -14,7 +14,7 @@
     <nav class="bg-white text-black shadow-md p-4">
       <div class="max-w-6xl mx-auto flex justify-between items-center">
         <!-- Mobile -->
-        <div class="flex items-center md:hidden">
+        <div class=" flex items-center md:hidden">
           <button
             id="menu-toggle"
             class="p-2 rounded shadow-md transition duration-300"
@@ -25,11 +25,11 @@
         <!-- Mobile Menu-->
         <div
           id="overlay"
-          class="fixed inset-0 bg-black bg-opacity-50 hidden transition-opacity"
+          class="fixed inset-0 bg-black bg-opacity-50 hidden transition-opacity z-10"
         ></div>
         <div
           id="mobile-menu"
-          class="fixed bg-white top-0 left-0 w-64 h-full transform -translate-x-full transition-transform duration-300 md:hidden"
+          class="custom fixed bg-white top-0 left-0 w-64 h-full transform -translate-x-full transition-transform duration-300 md:hidden z-20"
         >
           <button id="close-menu" class="absolute top-4 right-4">
             <img src="./assets/close.png" alt="Close" class="w-4 h-4" />
@@ -50,7 +50,7 @@
               <a href="./coming_soon.html" class="block py-2 px-4">Projects</a>
             </li>
             <li>
-              <a href="./about.html" class="block py-2 px-4">About</a>
+              <a href="./coming_soon.html" class="block py-2 px-4">About</a>
             </li>
           </ul>
         </div>
@@ -68,9 +68,9 @@
           <h1 class="text-xl font-bold font-serif">AlexPerdron</h1>
         </div>
         <div class="space-x-6 hidden md:flex">
-          <a href="./index.html" class="hover:text-green-500">Résumé</a>
-          <a href="./coming_soon.html" class="hover:text-green-500">Projects</a>
-          <a href="./about.html" class="hover:text-green-500">About</a>
+          <a href="./index.html" class="hover:text-[#5CBFEA]">Résumé</a>
+          <a href="./coming_soon.html" class="hover:text-[#5CBFEA]">Projects</a>
+          <a href="./coming_soon.html" class="hover:text-[#5CBFEA]">About</a>
         </div>
         <!-- Theme Button -->
         <button
@@ -92,7 +92,7 @@
           download="NguyenTuanKhoa_CV.pdf"
         >
           <button
-            class="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-cyan-400"
+            class="px-4 py-2 bg-[#2b4856] text-[#F5F5F6] font-semibold rounded-lg shadow-md hover:bg-[#28627b]"
           >
             📄 Download CV
           </button>
