@@ -1,16 +1,16 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nguyen Tuan Khoa - Cover Letter</title>
+    <title>Schedule</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./utils/darkmode.js"></script>
     <script src="./utils/mobile_menu.js"></script>
-    <script src="./utils/links.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/js/fontawesome.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="./utils/schedule.js" defer></script>
   </head>
   <body class="bg-gray-200 text-black transition-all duration-300">
-    <!-- NavBar -->
     <nav class="bg-white text-black shadow-md p-4">
       <div class="max-w-6xl mx-auto flex justify-between items-center">
         <!-- Mobile -->
@@ -47,7 +47,7 @@
           <ul class="mt-12 space-y-6 text-center">
             <li><a href="./index.html" class="block py-2 px-4">Résumé</a></li>
             <li>
-              <a href="./schedule.html" class="block py-2 px-4">Projects</a>
+              <a href="./schedule.html" class="block py-2 px-4">Schedule</a>
             </li>
             <li>
               <a href="./coming_soon.html" class="block py-2 px-4">About</a>
@@ -65,11 +65,11 @@
             alt="Avatar"
             class="w-8 h-8 rounded-full shadow-md"
           />
-          <h1 class="text-xl font-bold font-serif">AlexPerdron</h1>
+          <h1 class="text-xl font-bold">AlexPerdron</h1>
         </div>
         <div class="space-x-6 hidden md:flex">
           <a href="./index.html" class="hover:text-green-500">Résumé</a>
-          <a href="./schedule.html" class="hover:text-green-500">Projects</a>
+          <a href="./schedule.html" class="hover:text-green-500">Schedule</a>
           <a href="./coming_soon.html" class="hover:text-green-500">About</a>
         </div>
         <!-- Theme Button -->
@@ -81,45 +81,58 @@
         </button>
       </div>
     </nav>
-
-    <!-- Main Content -->
-    <main
-      class="container max-w-[90%] xl:max-w-6xl mx-auto flex flex-col items-center justify-center font-serif bg-white shadow-lg rounded-lg mt-6"
-    >
-      <div
-        class="relative bg-[url('./assets/background.jpg')] bg-cover bg-center h-[420px] w-full rounded-lg shadow-lg"
-      >
-        <div class="absolute right-0 top-0 rounded-lg pt-4 pr-7">
-          <h1 class="text-4xl text-white font-bold text-center">About me</h1>
+    <main class="flex flex-col items-center justify-center min-h-auto w-full max-w-[90%] xl:max-w-6xl mx-auto p-6 mt-6 bg-white shadow-lg rounded-lg">
+      <div class="w-full">
+        <h1 class="text-2xl font-bold">Schedule</h1>
+        <p class="text-sm text-gray-500 mb-4">Enter time between 3:00 and 23:30</p>
+    
+        <div class="flex flex-wrap gap-4 mb-6">
+          <input type="text" id="taskName" placeholder="Task name"
+            class="flex-1 p-2 border border-gray-300 rounded-lg min-w-[150px] text-black">
+          
+          <select id="day" class="border p-2 rounded min-w-[120px] text-black" title="day">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </select>
+    
+          <input type="time" id="startTime" placeholder="Start time"
+            class="p-2 border border-gray-300 rounded-lg min-w-[110px] text-black">
+          <input type="time" id="endTime" placeholder="End time"
+            class="p-2 border border-gray-300 rounded-lg min-w-[110px] text-black">
+    
+          <button onclick="addTask()"
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 min-w-[120px]">Add Task</button>
+          <button onclick="exportToExcel()"
+            class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 min-w-[140px]">Export to Excel</button>
         </div>
-
-        <div
-          class="hidden md:grid md:grid-cols-2 gap-4 p-6 md:absolute md:left-0 md:bottom-0"
-        >
-          <div
-            class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center"
-          >
-            <img src="./assets/headset.png" alt="Contact" class="w-6 h-6" />
-          </div>
-          <div
-            class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center"
-          >
-            <img src="./assets/headset.png" alt="Contact" class="w-6 h-6" />
-          </div>
-          <div
-            class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center"
-          >
-            <img src="./assets/headset.png" alt="Contact" class="w-6 h-6" />
-          </div>
-          <div
-            class="custom rounded-lg bg-white h-[48px] w-[48px] flex items-center justify-center"
-          >
-            <img src="./assets/headset.png" alt="Contact" class="w-6 h-6" />
-          </div>
+    
+        <!-- 📱 Responsive Scrollable Table Container -->
+        <div class="w-full overflow-x-auto">
+          <table id="scheduleTable" class="border border-collapse w-full text-center min-w-[700px]">
+            <thead>
+              <tr class="bg-[#2b4856] text-[#F5F5F6]">
+                <th class="border px-2 py-1 w-24">Time</th>
+                <th class="border px-2 py-1">Monday</th>
+                <th class="border px-2 py-1">Tuesday</th>
+                <th class="border px-2 py-1">Wednesday</th>
+                <th class="border px-2 py-1">Thursday</th>
+                <th class="border px-2 py-1">Friday</th>
+                <th class="border px-2 py-1">Saturday</th>
+                <th class="border px-2 py-1">Sunday</th>
+              </tr>
+            </thead>
+            <tbody id="gridBody"></tbody>
+          </table>
         </div>
       </div>
     </main>
-    <footer class="text-center flex flex-col text-gray-400 p-6">
+    
+    <footer class="text-center text-gray-900 p-6">
       <div class="flex justify-center space-x-6 pb-2">
         <a
           href="https://www.linkedin.com/in/khoanguyen030803/"
@@ -150,8 +163,8 @@
           <img src="./assets/facebook.png" alt="Facebook" class="w-8 h-8" />
         </a>
       </div>
-      <text>© 2024 Nguyen Tuan Khoa. All rights reserved.</text>
-      <text>
+      <p>© 2024 Nguyen Tuan Khoa. All rights reserved.</p>
+      <p>
         Contact:
         <a
           href="mailto:khoanguyen030803@gmail.com"
@@ -160,10 +173,10 @@
           khoanguyen030803@gmail.com
         </a>
         | Phone:
-        <a href="tel:+84909801582" class="text-blue-500 hover:text-blue-700">
-          (+84) 909 801 582
-        </a>
-      </text>
+        <a href="tel:+84909801582" class="text-blue-500 hover:text-blue-700"
+          >(+84) 909 801 582</a
+        >
+      </p>
     </footer>
   </body>
 </html>
