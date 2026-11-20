@@ -82,7 +82,7 @@ function setGuestName(name, isPreset = false) {
 
   guestNameDisplay.textContent = finalName;
   guestInput.value = hasName ? finalName : '';
-  if (hasName) {
+  if (hasName && rsvpNameInput) {
     rsvpNameInput.value = finalName;
   }
 
@@ -144,13 +144,23 @@ const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&tex
 document.getElementById('googleCalLink').href = gCalUrl;
 
 const dateTimeBox = document.getElementById('dateTimeBox');
-dateTimeBox.addEventListener('click', () => openModal('calendarModal'));
-dateTimeBox.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter' || e.key === ' ') {
-    e.preventDefault();
-    openModal('calendarModal');
-  }
-});
+if (dateTimeBox) {
+  const triggerCalendar = () => {
+    if (document.getElementById('calendarModal')) {
+      openModal('calendarModal');
+    } else {
+      window.open(gCalUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  dateTimeBox.addEventListener('click', triggerCalendar);
+  dateTimeBox.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      triggerCalendar();
+    }
+  });
+}
 
 document.getElementById('contactTrigger').addEventListener('click', () => {
   openModal('contactModal');
