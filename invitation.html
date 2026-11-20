@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thiệp mời tốt nghiệp</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Anton&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      :root {
+        --bg-cream: #f2ede4;
+        --navy-primary: #2c4b85;
+        --navy-dark: #1e3561;
+        --gold-script: #e5d5b7;
+        --purple-border: #7b2cbf;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg-cream);
+        font-family: 'JetBrains Mono', monospace;
+        color: #111827;
+        overflow-x: hidden;
+        min-height: 100vh;
+        margin: 0;
+        position: relative;
+      }
+
+      /* Hiệu ứng kết cấu giấy vintage (Paper Grain Texture) */
+      .paper-texture {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 50;
+        opacity: 0.45;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.28'/%3E%3C/svg%3E");
+      }
+
+      .font-display-block {
+        font-family: 'Anton', sans-serif;
+        color: var(--navy-primary);
+        letter-spacing: 0.01em;
+        line-height: 0.85;
+        user-select: none;
+      }
+
+      .font-script {
+        font-family: 'Alex Brush', cursive;
+        color: var(--gold-script);
+        text-shadow: 0 2px 10px rgba(44, 75, 133, 0.18);
+        user-select: none;
+      }
+
+      @keyframes scriptReveal {
+        0% {
+          clip-path: inset(0 100% 0 0);
+          opacity: 0;
+          transform: translateY(8px) rotate(-8deg);
+        }
+        100% {
+          clip-path: inset(0 0% 0 0);
+          opacity: 1;
+          transform: translateY(0) rotate(-8deg);
+        }
+      }
+
+      .animate-script {
+        animation: scriptReveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        animation-delay: 0.3s;
+        opacity: 0;
+      }
+
+      .animate-script-delay {
+        animation: scriptReveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        animation-delay: 0.65s;
+        opacity: 0;
+      }
+
+      @keyframes cardEntrance {
+        0% {
+          opacity: 0;
+          transform: translateY(45px) scale(0.94) rotate(-6deg);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1) rotate(-2.8deg);
+        }
+      }
+
+      .card-perspective {
+        perspective: 1200px;
+      }
+
+      .invitation-card {
+        background-color: #ffffff;
+        border: 1.5px solid #1a1a1a;
+        box-shadow:
+          10px 14px 30px rgba(26, 37, 60, 0.14),
+          0 2px 6px rgba(0, 0, 0, 0.06);
+        transform: rotate(-2.8deg);
+        transform-style: preserve-3d;
+        transition:
+          transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+          box-shadow 0.35s ease;
+        animation: cardEntrance 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      .invitation-card:hover,
+      .invitation-card.is-active {
+        box-shadow:
+          16px 22px 42px rgba(44, 75, 133, 0.2),
+          0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .navy-badge {
+        background-color: var(--navy-primary);
+        color: #ffffff;
+        display: inline-block;
+        padding: 3px 10px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        transform: rotate(-1deg);
+      }
+
+      .purple-time-box {
+        border: 2px solid var(--purple-border);
+        transition: all 0.25s ease;
+        position: relative;
+      }
+
+      .purple-time-box:hover {
+        background-color: rgba(123, 44, 191, 0.05);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(123, 44, 191, 0.15);
+      }
+
+      .address-interactive {
+        transition: all 0.25s ease;
+        border-radius: 6px;
+      }
+
+      .address-interactive:hover {
+        background-color: rgba(44, 75, 133, 0.06);
+        transform: translateX(3px);
+      }
+
+      @keyframes subtleBounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-3px);
+        }
+      }
+
+      .animate-pin {
+        animation: subtleBounce 2s infinite ease-in-out;
+      }
+
+      .modal-backdrop {
+        background-color: rgba(17, 24, 39, 0.55);
+        backdrop-filter: blur(4px);
+        transition: opacity 0.25s ease;
+      }
+    </style>
+  </head>
+  <body
+    class="flex flex-col items-center justify-between py-6 px-3 sm:py-10 sm:px-6 selection:bg-[#2c4b85] selection:text-white"
+  >
+    <div class="paper-texture" aria-hidden="true"></div>
+
+    <div class="fixed top-4 right-4 z-40 flex items-center gap-2">
+      <!-- Nút trên góc phải -->
+      <button
+        id="editGuestTopBtn"
+        title="Tùy chỉnh tên khách mời"
+        class="hidden bg-white/90 hover:bg-white text-[#2c4b85] border border-[#2c4b85]/30 shadow-sm px-3 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 transition hover:scale-105 active:scale-95"
+      >
+        <i data-lucide="user-pen" class="w-3.5 h-3.5"></i>
+        <span class="hidden sm:inline">Đổi tên khách</span>
+      </button>
+      <button
+        id="confettiBtn"
+        title="Bắn pháo giấy chúc mừng"
+        class="bg-[#2c4b85] hover:bg-[#1e3561] text-white shadow-md p-2.5 rounded-full transition hover:scale-110 active:scale-95"
+      >
+        <i data-lucide="party-popper" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <main
+      class="relative w-full max-w-[540px] mx-auto flex flex-col items-center justify-center my-auto z-10"
+    >
+      <header
+        class="relative w-full text-center select-none z-20 -mb-6 sm:-mb-9 pointer-events-none"
+      >
+        <h1
+          class="font-display-block text-[21vw] sm:text-[116px] tracking-tight uppercase leading-none"
+        >
+          GRADUATION
+        </h1>
+        <div
+          class="font-script text-[16vw] sm:text-[88px] absolute left-1/2 -translate-x-1/2 top-[32%] sm:top-[28%] whitespace-nowrap animate-script"
+        >
+          Graduation
+        </div>
+      </header>
+
+      <div class="card-perspective w-[90%] sm:w-[84%] z-30 my-2">
+        <article
+          id="invitationCard"
+          class="invitation-card w-full px-5 py-7 sm:px-8 sm:py-9 text-center relative"
+        >
+          <p
+            class="text-xs sm:text-sm tracking-[0.14em] uppercase font-medium text-gray-800 mb-3"
+          >
+            TRÂN TRỌNG KÍNH MỜI
+          </p>
+
+          <div
+            class="group relative inline-flex items-center justify-center my-1"
+          >
+            <div
+              class="group relative inline-flex items-center justify-center my-1"
+            >
+              <button
+                id="guestNameTrigger"
+                type="button"
+                title="Nhấn để nhập tên của bạn"
+                class="text-2xl sm:text-3xl font-extrabold tracking-wider text-gray-950 px-3 py-1 rounded-lg border border-transparent hover:border-dashed hover:border-[#2c4b85]/50 hover:bg-[#f2ede4]/60 transition flex items-center gap-2 cursor-pointer"
+              >
+                <span id="guestNameDisplay">ABC</span>
+                <i
+                  id="guestEditIcon"
+                  data-lucide="pencil"
+                  class="hidden w-3.5 h-3.5 text-[#2c4b85] opacity-50 group-hover:opacity-100 transition"
+                ></i>
+              </button>
+            </div>
+          </div>
+
+          <h2
+            class="text-base sm:text-xl tracking-[0.08em] font-medium uppercase text-gray-900 mt-2 mb-5"
+          >
+            THAM DỰ LỄ TỐT NGHIỆP
+          </h2>
+
+          <div class="text-left mb-5">
+            <div class="mb-1.5">
+              <span class="navy-badge text-xs sm:text-sm">DATE &amp; TIME</span>
+            </div>
+            <hr class="border-t border-gray-700 mb-2" />
+
+            <div
+              id="dateTimeBox"
+              role="button"
+              tabindex="0"
+              title="Nhấn để thêm vào lịch"
+              class="purple-time-box p-2.5 sm:p-3.5 cursor-pointer group bg-white"
+            >
+              <div class="flex items-center justify-between">
+                <div>
+                  <div
+                    class="text-xl sm:text-[26px] font-bold tracking-tight text-gray-950 leading-tight"
+                  >
+                    10:00 - 13:00
+                  </div>
+                  <div
+                    class="text-xl sm:text-[26px] font-bold tracking-tight text-gray-950 leading-tight mt-0.5"
+                  >
+                    29-10-2026 (CN)
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col items-center justify-center text-[#7b2cbf] bg-purple-50 group-hover:bg-[#7b2cbf] group-hover:text-white p-2 rounded-lg transition"
+                >
+                  <i data-lucide="calendar-plus" class="w-5 h-5"></i>
+                  <span class="text-[9px] font-bold mt-0.5 uppercase"
+                    >Lưu lịch</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-left mb-5">
+            <div class="mb-1.5">
+              <span class="navy-badge text-xs sm:text-sm">ADDRESS</span>
+            </div>
+            <hr class="border-t border-gray-700 mb-2" />
+
+            <a
+              id="addressLink"
+              href="https://www.google.com/maps/search/?api=1&query=Hội+trường+Trần+Chí+Đáo+Nhà+Điều+Hành+Đại+Học+Quốc+Gia+TP.HCM+Linh+Trung+Thủ+Đức"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Mở bản đồ dẫn đường trên Google Maps"
+              class="address-interactive block p-2 -mx-2 group cursor-pointer no-underline text-gray-900"
+            >
+              <div class="flex items-start justify-between gap-2">
+                <div class="text-xs sm:text-[13.5px] leading-relaxed">
+                  <div
+                    class="font-medium uppercase text-gray-800 group-hover:text-[#2c4b85] transition"
+                  >
+                    HỘI TRƯỜNG TRẦN CHÍ ĐÁO
+                  </div>
+                  <div
+                    class="font-extrabold uppercase text-gray-950 group-hover:text-[#2c4b85] transition"
+                  >
+                    NHÀ ĐIỀU HÀNH ĐẠI HỌC QUỐC GIA TP.HCM, PHƯỜNG LINH TRUNG,
+                    THỦ ĐỨC, TP.HCM
+                  </div>
+                </div>
+                <div
+                  class="shrink-0 mt-1 flex flex-col items-center text-[#2c4b85] bg-[#2c4b85]/10 group-hover:bg-[#2c4b85] group-hover:text-white p-2 rounded-lg transition"
+                >
+                  <i data-lucide="map-pin" class="w-4 h-4 animate-pin"></i>
+                  <span class="text-[9px] font-bold mt-0.5 uppercase"
+                    >Maps</span
+                  >
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="pt-1 border-t border-dashed border-gray-300">
+            <button
+              id="contactTrigger"
+              type="button"
+              title="Nhấn để gọi hoặc sao chép số điện thoại"
+              class="inline-flex flex-wrap items-center justify-center gap-1.5 text-[11px] sm:text-xs font-semibold text-gray-800 hover:text-[#2c4b85] py-1.5 px-2.5 rounded-lg hover:bg-gray-100 transition cursor-pointer"
+            >
+              <span>NGUYỄN TUẤN KHOA</span>
+              <span
+                class="text-[#2c4b85] font-bold underline decoration-dotted underline-offset-4"
+                >(090-980-1582)</span
+              >
+              <i
+                data-lucide="phone-call"
+                class="w-3.5 h-3.5 text-[#2c4b85]"
+              ></i>
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <footer
+        class="relative w-full text-center select-none z-20 -mt-6 sm:-mt-9 pointer-events-none"
+      >
+        <div
+          class="font-display-block text-[22vw] sm:text-[124px] tracking-tight uppercase leading-none"
+        >
+          CEREMONY
+        </div>
+        <div
+          class="font-script text-[16vw] sm:text-[88px] absolute left-1/2 -translate-x-1/2 top-[15%] sm:top-[12%] whitespace-nowrap animate-script-delay"
+        >
+          Ceremony
+        </div>
+      </footer>
+
+      <div class="z-30 mt-6 px-2">
+        <a
+          href="https://www.google.com/maps/dir/?api=1&destination=Hội+trường+Trần+Chí+Đáo+Nhà+Điều+Hành+Đại+Học+Quốc+Gia+TP.HCM"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-white hover:bg-gray-50 text-[#2c4b85] border-2 border-[#2c4b85] font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm flex items-center gap-2 transition transform hover:-translate-y-0.5 active:translate-y-0"
+        >
+          <i data-lucide="navigation" class="w-4 h-4"></i>
+          <span>Chỉ đường Google Maps</span>
+        </a>
+      </div>
+    </main>
+
+    <div
+      id="guestModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop"
+    >
+      <div
+        class="bg-white border-2 border-gray-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl transform transition-all"
+      >
+        <div class="flex items-center justify-between mb-4">
+          <h3
+            class="text-base font-extrabold text-[#2c4b85] uppercase flex items-center gap-2"
+          >
+            <i data-lucide="sparkles" class="w-4 h-4"></i> Cá nhân hóa thiệp mời
+          </h3>
+          <button
+            data-close-modal="guestModal"
+            class="text-gray-400 hover:text-gray-700 p-1"
+          >
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <p class="text-xs text-gray-600 mb-4 leading-relaxed">
+          Nhập tên của bạn hoặc người được mời để hiển thị trực tiếp lên thiệp
+          (cũng có thể dùng link
+          <code class="bg-gray-100 px-1 rounded">?guest=Tên</code>).
+        </p>
+        <form id="guestForm" class="space-y-4">
+          <div>
+            <label
+              for="guestInput"
+              class="block text-xs font-bold uppercase text-gray-700 mb-1"
+              >Tên khách mời</label
+            >
+            <input
+              type="text"
+              id="guestInput"
+              placeholder="Ví dụ: MINH ANH"
+              maxlength="32"
+              class="w-full px-3.5 py-2.5 border-2 border-gray-300 focus:border-[#2c4b85] rounded-xl text-sm font-bold uppercase outline-none transition"
+            />
+          </div>
+          <div class="flex items-center justify-end gap-2">
+            <button
+              type="button"
+              id="copyShareLinkBtn"
+              class="px-3 py-2 text-xs font-bold text-[#2c4b85] bg-[#2c4b85]/10 hover:bg-[#2c4b85]/20 rounded-xl flex items-center gap-1.5 transition"
+            >
+              <i data-lucide="link" class="w-3.5 h-3.5"></i> Sao chép link
+            </button>
+            <button
+              type="submit"
+              class="px-4 py-2 text-xs font-bold text-white bg-[#2c4b85] hover:bg-[#1e3561] rounded-xl transition"
+            >
+              Cập nhật thiệp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      id="calendarModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop"
+    >
+      <div
+        class="bg-white border-2 border-gray-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl"
+      >
+        <div class="flex items-center justify-between mb-3">
+          <h3
+            class="text-base font-extrabold text-[#7b2cbf] uppercase flex items-center gap-2"
+          >
+            <i data-lucide="calendar-heart" class="w-5 h-5"></i> Lưu lịch tham
+            dự
+          </h3>
+          <button
+            data-close-modal="calendarModal"
+            class="text-gray-400 hover:text-gray-700 p-1"
+          >
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <div
+          class="bg-purple-50 border border-purple-200 rounded-xl p-3 mb-4 text-xs space-y-1"
+        >
+          <p class="font-bold text-gray-900">
+            Lễ Tốt Nghiệp - Nguyễn Tuấn Khoa
+          </p>
+          <p class="text-gray-700">10:00 - 13:00 | Chủ Nhật, 29/10/2026</p>
+          <p class="text-gray-700">
+            Hội trường Trần Chí Đáo, Nhà điều hành ĐHQG TP.HCM
+          </p>
+        </div>
+        <div class="space-y-2.5">
+          <a
+            id="googleCalLink"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full py-2.5 px-4 bg-[#2c4b85] hover:bg-[#1e3561] text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition"
+          >
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            Thêm vào Google Calendar
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="contactModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop"
+    >
+      <div
+        class="bg-white border-2 border-gray-900 rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center"
+      >
+        <div class="flex justify-end">
+          <button
+            data-close-modal="contactModal"
+            class="text-gray-400 hover:text-gray-700 p-1"
+          >
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <div
+          class="w-12 h-12 bg-[#2c4b85]/10 text-[#2c4b85] rounded-full flex items-center justify-center mx-auto mb-3"
+        >
+          <i data-lucide="phone" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-base font-extrabold text-gray-900 uppercase">
+          Nguyễn Tuấn Khoa
+        </h3>
+        <p class="text-lg font-bold text-[#2c4b85] tracking-wider my-1">
+          090-980-1582
+        </p>
+        <p class="text-xs text-gray-500 mb-5">
+          Liên hệ trực tiếp khi bạn đến nơi nhé!
+        </p>
+        <div class="grid grid-cols-2 gap-2.5">
+          <a
+            href="tel:0909801582"
+            class="py-2.5 px-3 bg-[#2c4b85] hover:bg-[#1e3561] text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 transition"
+          >
+            <i data-lucide="phone-outgoing" class="w-4 h-4"></i> Gọi ngay
+          </a>
+          <button
+            id="copyPhoneBtn"
+            type="button"
+            class="py-2.5 px-3 bg-gray-100 hover:bg-gray-200 text-gray-900 text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 transition cursor-pointer"
+          >
+            <i data-lucide="copy" class="w-4 h-4"></i> Sao chép SĐT
+          </button>
+        </div>
+        <p
+          class="mt-4 pt-3 border-t border-dashed border-gray-200 text-[11px] text-gray-500"
+        >
+          Không liên lạc được? Gọi bạn
+          <span class="font-bold text-gray-800">Dung</span>:
+          <a
+            href="tel:0919312248"
+            class="font-bold text-[#2c4b85] underline decoration-dotted underline-offset-2"
+          >
+            091-931-2248
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div
+      id="toast"
+      class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-gray-900 text-white text-xs font-bold px-4 py-3 rounded-xl shadow-xl flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 translate-y-3"
+    >
+      <i
+        data-lucide="check-circle"
+        class="w-4 h-4 text-emerald-400 shrink-0"
+      ></i>
+      <span id="toastMessage">Đã sao chép!</span>
+    </div>
+    <script src="./utils/invitation.js"></script>
+  </body>
+</html>
