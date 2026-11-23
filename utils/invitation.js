@@ -132,8 +132,8 @@ document.getElementById('copyShareLinkBtn').addEventListener('click', () => {
 
 const eventDetails = {
   title: 'Lễ Tốt Nghiệp - Nguyễn Tuấn Khoa',
-  start: '20261029T100000', // 10:00 ngày 29/10/2026
-  end: '20261029T130000', // 13:00 ngày 29/10/2026
+  start: '20261129T100000', 
+  end: '20261129T123000',
   location:
     'Hội trường Trần Chí Đáo, Nhà điều hành Đại học Quốc gia TP.HCM, Phường Linh Trung, Thủ Đức, TP.HCM',
   description:
